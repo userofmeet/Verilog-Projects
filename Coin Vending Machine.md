@@ -1,4 +1,4 @@
-### Code
+# Code
 
 ```verilog 
 /*
@@ -131,7 +131,7 @@ module fsmbench();
   end
 endmodule
 ```
-### Output
+# Output
 #### Timing simulation
 ![image](https://github.com/userofmeet27/Verilog/assets/154442221/5427101f-4c31-4fb2-a908-8488625ad732)
 #### Testbench simulation
