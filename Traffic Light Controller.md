@@ -115,9 +115,4 @@ endmodule
 ```
 
 # Output
-#### FSM
-![image](https://github.com/userofmeet27/Verilog/assets/154442221/22b2108f-5988-4305-8e4f-af9d69c8a4df)
-#### Timing Simulation
-![image](https://github.com/userofmeet27/Verilog/assets/154442221/82d0fb28-7bad-4fa8-ac6e-16a274855862)
-#### Modelsim Simulation with Testbench
 ![image](https://github.com/userofmeet27/Verilog/assets/154442221/025f1dc2-f196-4e2c-a026-84cff0b5b14b)
