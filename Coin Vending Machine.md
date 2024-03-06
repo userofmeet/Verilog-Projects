@@ -1,13 +1,12 @@
-# Code
-
-```verilog 
-/*
+# Coin Vending Machine:
 Verilog code and its test bench for a coin vending machine which accepts Rs1 , Rs 2 or Rs 5 coins. One coin at a
 time. Only after a total of Rs. 5 is reached the machine will release the cold-drink bottle and then return back
 to wait for next transaction.
-*/
 
-module fsm( clk, rst, inp, outp); 
+```verilog 
+
+
+module coinvending( clk, rst, inp, outp); 
 input clk, rst;
 input [2:0]inp; 
 output outp; 
@@ -103,13 +102,14 @@ else begin
 	end 
 end
 endmodule
-
-//Tesbench for the above code
+```
+# Coin Vending Machine Testbech:
+``` Verilog
 module fsmbench();
   reg clk,rst;
   reg [2:0]inp;
   wire outp;
-  fsm testing( clk, rst, inp, outp);
+  coinvending testing( clk, rst, inp, outp);
   initial
   begin
     clk=1'b0;
@@ -132,8 +132,8 @@ module fsmbench();
 endmodule
 ```
 # Output
-#### Timing simulation
+### Timing simulation
 ![image](https://github.com/userofmeet27/Verilog/assets/154442221/5427101f-4c31-4fb2-a908-8488625ad732)
-#### Testbench simulation
+### Testbench simulation
 ![image](https://github.com/userofmeet27/Verilog/assets/154442221/b14287cc-7e2a-499d-94d2-2e9ed4d13d76)
 
