@@ -1,15 +1,12 @@
-# Code
-```verilog
-/*
+# Lift Controller:
 Verilog code for a lift controller which has the following requirements :-
 In lift controller there is two state of lift condition. One is “idle” and second is “running”. One
 control signal is indicate whether lift is going in up direction or down direction. When the lift is in
 “idle” condition for more than 5 cycle it will come to ground floor. When someone call the lift
 from higher(lower) stories and in between someone call the lift from lower(higher) stories, lift will
 stop to lower(higher) stories if it is not passed and after that it will start to go towards first call.
-*/
 
-//Solving the above problem using Mealy FSM:-
+```verilog
 
 module liftcontrol(clk,rst,up_signal,down_signal,current_floor);
 input clk,rst,up_signal,down_signal;
@@ -109,9 +106,9 @@ endcase
 end
 end
 endmodule
-
-//Testbench for the above code is given as follows :-
-
+```
+# Lift Controller Testbench:
+```Verilog
 module LIFTCONTROLLERTESTBENCH();
 reg clk,rst,up_signal,down_signal;
 wire [2:0]current_floor;
