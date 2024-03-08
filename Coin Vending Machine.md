@@ -11,124 +11,126 @@ input clk, rst;
 input [2:0]inp; 
 output outp; 
 reg [2:0] state; 
-reg outp; 
+reg outp;
+
 always @( posedge clk, posedge rst ) begin 
-if( rst ) begin 
-	state <= 3'b000; 
-	outp <= 0; 
-end 
+if( rst ) begin
+state <= 3'b000; 
+outp <= 0; 
+end
+
 else begin 
-	case( state ) 
-	3'b000: begin 
-		if( inp <= 3'b001 ) begin 
-			state <= 3'b001; 
-			outp <= 0; 
-		end 
-		else if (inp <= 3'b101) begin 
-			state <= 3'b000; 
-			outp <= 1; 
-		end 
-		else if (inp <= 3'b010) begin 
-			state <= 3'b000; 
-			outp <= 0; 
-		end 
-	end 
+case( state ) 
+3'b000: begin 
+if( inp <= 3'b001 ) begin 
+state <= 3'b001; 
+outp <= 0; 
+end 
+else if (inp <= 3'b101) begin 
+state <= 3'b000; 
+outp <= 1; 
+end 
+else if (inp <= 3'b010) begin 
+state <= 3'b000; 
+outp <= 0; 
+end 
+end 
 	
-	3'b001: begin 
-		if( inp <= 3'b001 ) begin 
-			state <= 3'b010; 
-			outp <= 0; 
-		end 
-		else if (inp <= 3'b101) begin 
-			state <= 3'b001; 
-			outp <= 1; 
-		end 
-		else if (inp <= 3'b010) begin 
-			state <= 3'b011; 
-			outp <= 0; 
-		end 
-	end
+3'b001: begin 
+if( inp <= 3'b001 ) begin 
+state <= 3'b010; 
+outp <= 0; 
+end 
+else if (inp <= 3'b101) begin 
+state <= 3'b001; 
+outp <= 1; 
+end 
+else if (inp <= 3'b010) begin 
+state <= 3'b011; 
+outp <= 0; 
+end 
+end
+
+3'b010: begin 
+if( inp <= 3'b001 ) begin 
+state <= 3'b011; 
+outp <= 0; 
+end 
+else if (inp <= 3'b101) begin 
+state <= 3'b010; 
+outp <= 1; 
+end 
+else if (inp <= 3'b010) begin 
+state <= 3'b100; 
+outp <= 0; 
+end 
+end
+
+3'b011: begin 
+if( inp <= 3'b001 ) begin 
+state <= 3'b100; 
+outp <= 0; 
+end 
+else if (inp <= 3'b101) begin 
+state <= 3'b011; 
+outp <= 1; 
+end 
+else if (inp <= 3'b010) begin 
+state <= 3'b000; 
+outp <= 1; 
+end 
+end
 	
-	3'b010: begin 
-		if( inp <= 3'b001 ) begin 
-			state <= 3'b011; 
-			outp <= 0; 
-		end 
-		else if (inp <= 3'b101) begin 
-			state <= 3'b010; 
-			outp <= 1; 
-		end 
-		else if (inp <= 3'b010) begin 
-			state <= 3'b100; 
-			outp <= 0; 
-		end 
-	end
-	
-	3'b011: begin 
-		if( inp <= 3'b001 ) begin 
-			state <= 3'b100; 
-			outp <= 0; 
-		end 
-		else if (inp <= 3'b101) begin 
-			state <= 3'b011; 
-			outp <= 1; 
-		end 
-		else if (inp <= 3'b010) begin 
-			state <= 3'b000; 
-			outp <= 1; 
-		end 
-	end
-	
-	3'b100: begin 
-		if( inp <= 3'b001 ) begin 
-			state <= 3'b000; 
-			outp <= 1; 
-		end 
-		else if (inp <= 3'b101) begin 
-			state <= 3'b100; 
-			outp <= 1; 
-		end 
-		else if (inp <= 3'b010) begin 
-			state <= 3'b001; 
-			outp <= 1; 
-		end 
-	end
-	
-	default: begin 
-		state <= 3'b000; 
-		outp <= 0; 
-		end 
-	endcase 
-	end 
+3'b100: begin 
+if( inp <= 3'b001 ) begin 
+state <= 3'b000; 
+outp <= 1; 
+end 
+else if (inp <= 3'b101) begin 
+state <= 3'b100; 
+outp <= 1; 
+end 
+else if (inp <= 3'b010) begin 
+state <= 3'b001; 
+outp <= 1; 
+end 
+end
+
+default: begin 
+state <= 3'b000; 
+outp <= 0; 
+end 
+endcase 
+end 
 end
 endmodule
 ```
 # Coin Vending Machine Testbech:
 ``` Verilog
 module fsmbench();
-  reg clk,rst;
-  reg [2:0]inp;
-  wire outp;
-  coinvending testing( clk, rst, inp, outp);
-  initial
-  begin
-    clk=1'b0;
-    forever #10 clk=~clk;
-  end
-  initial
-  begin 
-    rst=1'b0;
-    #5
-    rst=1'b1;
-    #10
-    rst=1'b0;
-    inp=3'b101;
-    #20
-    inp=3'b001;
-    #100 
-    inp=3'b101;
-    #10 $stop;
-  end
+reg clk,rst;
+reg [2:0]inp;
+wire outp;
+coinvending testing( clk, rst, inp, outp);
+initial
+begin
+clk=1'b0;
+forever #10 clk=~clk;
+end
+initial
+begin 
+rst=1'b0;
+#5
+rst=1'b1;
+#10
+rst=1'b0;
+inp=3'b101;
+#20
+inp=3'b001;
+#100 
+inp=3'b101;
+#10 $stop;
+end
 endmodule
 ```
 # Output
