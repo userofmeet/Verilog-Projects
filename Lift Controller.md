@@ -13,6 +13,7 @@ input clk,rst,up_signal,down_signal;
 output reg [2:0] current_floor;
 reg [2:0] state;
 reg [2:0] count_idle;
+
 always @(posedge clk or posedge rst) begin
 if(rst) begin
 state <= 3'b000;   
@@ -99,9 +100,9 @@ end
 end 
 end
 default:begin
-	state<=3'b000;
-	current_floor <=3'b000;
-	end
+state<=3'b000;
+current_floor <=3'b000;
+end
 endcase
 end
 end
