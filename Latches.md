@@ -44,7 +44,8 @@ module srtestbench();
 endmodule
 ```
 # Output 
-![image](https://github.com/userofmeet27/Verilog-Projects/assets/154442221/2eb4b396-29ad-4e89-b77e-f800e1b2530c)
+![image](https://github.com/userofmeet27/Verilog-Projects/assets/154442221/e37e7987-a463-434d-bb28-9ead27288080)
+
 
 # D Latch
 ``` Verilog
