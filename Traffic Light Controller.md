@@ -1,6 +1,4 @@
-# Code
-```Verilog
-/*
+# Lift controller
 Traffic lights are installed on an intersection of a busy highway and a local farm road. Detectors are
 installed on the intersection that cause signal Car to be asserted high in the presence of a car on the
 farm road approaching the intersection with the highway. In the initial state, the highway lights must
@@ -13,9 +11,8 @@ high, but no longer than for two clock cycles. The farm road lights are then to 
 to Red (FR), at which point the highway lights should turn Green (HG). Cycling through farm road yellow (FY)
 also takes one clock cycle. Upon return to the initial state (HG, FR) the highway lights are not to be
 interrupted again for at least three clock cycles.
-*/
-
-module trafficlightcontroller(clk,car,f,h,rst);
+```Verilog
+module trafficlightcontroller(clk,car,f,h,reset);
 input clk,car,reset;
 output reg[1:0]f;
 output reg[1:0]h;
@@ -88,14 +85,14 @@ endcase
 end
 end
 endmodule
-
-//Testbench for the above code is given as follows:-
-
-module tb();
+```
+# Testbench Liftcontroller 
+``` Verilog
+module testliftcontroller();
 reg car,clk,reset;
 wire [1:0]f;
 wire [1:0]h;
-trafficlightcontroller testbench(clk,car,f,h,rst);
+trafficlightcontroller testbench(clk,car,f,h,reset);
 initial 
 begin
 clk = 1'b0;
@@ -112,6 +109,7 @@ car = 1'b1;
 car = 1'b0;
 end
 endmodule
+
 ```
 
 # Output
